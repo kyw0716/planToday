@@ -1,5 +1,5 @@
 function Button({name, tag, todo, setLsLength}){
-    const delOnClick = () => {
+    const OnClick = () => {
         if(name === "삭제"){
             localStorage.removeItem(todo);
             setLsLength(current => current - 1);
@@ -10,10 +10,10 @@ function Button({name, tag, todo, setLsLength}){
         {
             tag == "input" ? 
                 <input 
-                type={"checkbox"}
+                    type={"checkbox"}
                 />
                 :
-                <button onClick={delOnClick}>
+                <button onClick={OnClick}>
                     {name}
                 </button> 
         }

@@ -1,0 +1,31 @@
+.todo{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.span{
+    width: 80%;
+}
+.modify{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    width: 90%;
+    height: 100%;
+}
+.input{
+    width: 100%;
+    height: 80%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid lightgray;
+}
+.input:focus{
+    outline: none;
+    border-bottom: 1px solid;
+}

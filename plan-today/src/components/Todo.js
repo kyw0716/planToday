@@ -1,10 +1,12 @@
 import Button from "./Button";
 import {useState, useEffect} from 'react';
+import styles from "../css/Todo.module.css";
 
 function Todo({todo, setLsLength}){
     const [mod, setMod] = useState(true);
     const [newInput, setNewInput] = useState("");
     const [newSubmit, setNewSubmit] = useState(todo);
+
     useEffect(()=>{
         if(newSubmit !== ""){
             localStorage.setItem(newSubmit, newSubmit);
@@ -24,28 +26,30 @@ function Todo({todo, setLsLength}){
     }
     
     return(
-        <div>
+        <>
             {
                 mod ?
-                    <>
+                    <div className={styles.todo}>
                         <Button tag={"input"}/>
-                        {newSubmit}
+                        <span className={styles.span}>
+                            {newSubmit}
+                        </span>
                         <button onClick={modify}>
                             수정
                         </button>
                         <Button name={"삭제"} todo={newSubmit} setLsLength={setLsLength}/>
-                    </>
+                    </div>
                     :
-                    <>
-                        <form onSubmit={onSubmit}>
-                            <input onChange={onChange}/>
+                    <div className={styles.modify}>
+                        <form onSubmit={onSubmit} className={styles.form}>
+                            <input onChange={onChange} className={styles.input}/>
                         </form>
                         <button onClick={modify}>
                             x
                         </button>
-                    </>
+                    </div>
             }
-        </div>
+        </>
     )
 }
 

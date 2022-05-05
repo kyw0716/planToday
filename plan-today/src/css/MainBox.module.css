@@ -1,15 +1,17 @@
 .mainBox{
-    width: 50%;
-    height: 80%;
+    width: 40%;
+    height: 75%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid;
+    border: 1px solid rgb(223, 205, 201);
     border-radius: 30px;
+    background-color: rgb(223, 205, 201);
+    color: rgb(180, 156, 150);
 }
 .formTag{
     width: 100%;
-    height: 30px;
+    height: 50px;
     margin: 15px 0px;
     display: flex;
     justify-content: center;
@@ -19,31 +21,38 @@
     height: 100%;
     padding: 0;
     border: none;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid rgb(211, 185, 179);
+    background-color: inherit;
 }
 .buttonBox{
     width: 95%;
     display: flex;
     justify-content: space-around;
-    height: 40px;
+    height: 50px;
     margin-bottom: 10px;
-    border-bottom: 1px solid lightgray;
 }
 .button{
     width: 30%;
     border: none;
     background-color: inherit;
     font-size: 18px;
+    color: rgb(180, 156, 150);
 }
 .todo{
-    width: 100%;
-    height: 35px;
+    width: 95%;
+    height: 60px;
     display: flex;
+    border-bottom: 1px solid rgb(211, 185, 179);
 }
 .todoBox{
     width: 100%;
-    height: 70%;
+    height: 71%;
     overflow: scroll;
-    overflow-x: hidden;
     margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.todoBox::-webkit-scrollbar { 
+    display: none;
 }

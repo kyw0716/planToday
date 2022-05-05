@@ -34,10 +34,12 @@ function Todo({todo, setLsLength}){
                         <span className={styles.span}>
                             {newSubmit}
                         </span>
-                        <button onClick={modify}>
-                            수정
-                        </button>
-                        <Button name={"삭제"} todo={newSubmit} setLsLength={setLsLength}/>
+                        <div className={styles.buttonBox}>
+                            <button onClick={modify} className={styles.button}>
+                                수정
+                            </button>
+                            <Button name={"삭제"} todo={newSubmit} setLsLength={setLsLength}/>
+                        </div>
                     </div>
                     :
                     <div className={styles.modify}>

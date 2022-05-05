@@ -1,7 +1,7 @@
 function Footer(){
     return(
         <div>
-            Footer
+            © 2022 Kim - Young Woo. All rights reserved.
         </div>
     );
 }

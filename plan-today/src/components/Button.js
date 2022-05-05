@@ -1,3 +1,5 @@
+import styles from "../css/Todo.module.css"
+
 function Button({name, tag, todo, setLsLength}){
     const OnClick = () => {
         if(name === "삭제"){
@@ -13,7 +15,7 @@ function Button({name, tag, todo, setLsLength}){
                     type={"checkbox"}
                 />
                 :
-                <button onClick={OnClick}>
+                <button onClick={OnClick} className={styles.button}>
                     {name}
                 </button> 
         }

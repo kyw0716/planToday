@@ -39,9 +39,9 @@ function MainBox(){
                         TODO[i].style.display = "";
                     }
                 }
-                document.getElementById("ing").style.color = "lightgray";
-                document.getElementById("today").style.color = "black";
-                document.getElementById("done").style.color = "black";
+                document.getElementById("ing").style.color = "rgb(146, 121, 115)";
+                document.getElementById("today").style.color = "rgb(180, 156, 150)";
+                document.getElementById("done").style.color = "rgb(180, 156, 150)";
             }
             else if(show === 0){
                 for(let i = 0; i < localStorage.length; i++){
@@ -52,9 +52,9 @@ function MainBox(){
                         TODO[i].style.display = "";
                     }
                 }
-                document.getElementById("ing").style.color = "black";
-                document.getElementById("today").style.color = "lightgray";
-                document.getElementById("done").style.color = "black";
+                document.getElementById("ing").style.color = "rgb(180, 156, 150)";
+                document.getElementById("today").style.color = "rgb(146, 121, 115)";
+                document.getElementById("done").style.color = "rgb(180, 156, 150)";
             }
             else if(show === 1){
                 for(let i = 0; i < localStorage.length; i++){
@@ -65,9 +65,9 @@ function MainBox(){
                         TODO[i].style.display = "none";
                     }
                 }
-                document.getElementById("ing").style.color = "black";
-                document.getElementById("today").style.color = "black";
-                document.getElementById("done").style.color = "lightgray";
+                document.getElementById("ing").style.color = "rgb(180, 156, 150)";
+                document.getElementById("today").style.color = "rgb(180, 156, 150)";
+                document.getElementById("done").style.color = "rgb(146, 121, 115)";
             }
         }
     },[show]);

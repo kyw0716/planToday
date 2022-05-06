@@ -18,7 +18,10 @@
     color: rgb(180, 156, 150);
     border: none;
 }
-#title{
-    -webkit-transition: all 2s ease;
-    transition: all 2s ease;
+.title{
+    animation: blinking 1.5s infinite;
+}
+@keyframes blinking{
+    0%{filter: brightness(1)}
+    100%{filter: brightness(0.5);}
 }

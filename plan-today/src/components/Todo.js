@@ -2,7 +2,7 @@ import Button from "./Button";
 import {useState, useEffect} from 'react';
 import styles from "../css/Todo.module.css";
 
-function Todo({todo, setLsLength}){
+function Todo({todo, setLsLength, setChecked}){
     const [mod, setMod] = useState(true);
     const [newInput, setNewInput] = useState("");
     const [newSubmit, setNewSubmit] = useState(todo);
@@ -30,7 +30,7 @@ function Todo({todo, setLsLength}){
             {
                 mod ?
                     <div className={styles.todo}>
-                        <Button tag={"input"}/>
+                        <Button tag={"input"} setChecked={setChecked}/>
                         <span className={styles.span}>
                             {newSubmit}
                         </span>

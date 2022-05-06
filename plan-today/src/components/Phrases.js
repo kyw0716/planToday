@@ -4,16 +4,11 @@ import {useState, useEffect} from "react";
 function Phrases(){
     const [advice, setAdvice] = useState("");
     const [hidden, setHidden] = useState(false);
-    const [blink, setBlink] = useState(true);
 
     useEffect(()=>{
         fetch("https://api.adviceslip.com/advice")
         .then(response => response.json())
         .then(data => setAdvice(data.slip.advice))
-
-        setInterval(()=>{
-            setBlink(current => !current);
-        },1000)
     },[])
 
     useEffect(()=>{
@@ -24,14 +19,6 @@ function Phrases(){
             document.getElementById("advice").style.display = "";
         }
     },[hidden])
-    useEffect(()=>{
-        if(blink){
-            document.getElementById("title").style.filter = "brightness(50%)"
-        }
-        else{
-            document.getElementById("title").style.filter = "brightness(1)"
-        }
-    },[blink])
 
     const onClick = () => {
         fetch("https://api.adviceslip.com/advice")
@@ -45,7 +32,7 @@ function Phrases(){
 
     return(
         <div className={styles.container}>
-            <h1 id="title">오늘</h1>
+            <h1 className={styles.title}>오늘</h1>
             <span id="advice">
                 {advice}
             </span>

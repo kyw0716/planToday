@@ -10,6 +10,7 @@ function MainBox(){
     const [lsLength, setLsLength] = useState(0);
     const [todos, setTodos] = useState([]);
     const [show, setShow] = useState(0);
+    const [checked, setChecked] = useState(false);
     let TODO = document.getElementsByClassName('todo');
 
     useEffect(()=>{
@@ -70,7 +71,7 @@ function MainBox(){
                 document.getElementById("done").style.color = "rgb(146, 121, 115)";
             }
         }
-    },[show]);
+    },[show, checked]);
 
     const inputOnChange = (e) => {
         setInputData(e.target.value);
@@ -108,13 +109,13 @@ function MainBox(){
                 <button onClick={onClick} className={styles.button} id="done">완료</button>
             </div>
             {   
-                r(todos, setLsLength)
+                r(todos, setLsLength, setChecked)
             }
         </div>
     );
 }
 
-function r(todos, setLsLength){
+function r(todos, setLsLength, setChecked){
     return(
         <div className={styles.todoBox}>
             {todos.map(
@@ -123,6 +124,7 @@ function r(todos, setLsLength){
                     <Todo
                         todo={todo}
                         setLsLength={setLsLength}
+                        setChecked={setChecked}
                     />
                 </div>)
             )}

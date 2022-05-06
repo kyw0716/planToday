@@ -24,6 +24,9 @@
     border-bottom: 1px solid rgb(211, 185, 179);
     background-color: inherit;
 }
+.inputTag:focus{
+    outline: none;
+}
 .buttonBox{
     width: 95%;
     display: flex;

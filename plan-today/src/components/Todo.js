@@ -44,9 +44,9 @@ function Todo({todo, setLsLength}){
                     :
                     <div className={styles.modify}>
                         <form onSubmit={onSubmit} className={styles.form}>
-                            <input onChange={onChange} className={styles.input}/>
+                            <input onChange={onChange} className={styles.input} value={newSubmit}/>
                         </form>
-                        <button onClick={modify}>
+                        <button className={styles.button} onClick={modify}>
                             x
                         </button>
                     </div>

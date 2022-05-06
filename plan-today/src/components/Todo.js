@@ -8,6 +8,9 @@ function Todo({todo, setLsLength, setChecked}){
     const [newSubmit, setNewSubmit] = useState(todo);
 
     useEffect(()=>{
+        setNewInput(todo);
+    },[]);
+    useEffect(()=>{
         if(newSubmit !== ""){
             localStorage.setItem(newSubmit, newSubmit);
         }
@@ -44,7 +47,7 @@ function Todo({todo, setLsLength, setChecked}){
                     :
                     <div className={styles.modify}>
                         <form onSubmit={onSubmit} className={styles.form}>
-                            <input onChange={onChange} className={styles.input} value={newSubmit}/>
+                            <input onChange={onChange} className={styles.input} value={newInput}/>
                         </form>
                         <button className={styles.button} onClick={modify}>
                             x

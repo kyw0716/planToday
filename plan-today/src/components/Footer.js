@@ -1,6 +1,8 @@
+import styles from '../css/Footer.module.css';
+
 function Footer(){
     return(
-        <div>
+        <div className={styles.footer}>
             © 2022 Kim - Young Woo. All rights reserved.
         </div>
     );

@@ -19,9 +19,9 @@
     border: none;
 }
 .title{
-    animation: blinking 1.5s infinite;
+    animation: blinking 2s infinite;
 }
 @keyframes blinking{
     0%{filter: brightness(1)}
-    100%{filter: brightness(0.5);}
+    100%{filter: brightness(0.3);}
 }

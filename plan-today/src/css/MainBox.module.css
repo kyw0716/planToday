@@ -41,11 +41,17 @@
     font-size: 18px;
     color: rgb(180, 156, 150);
 }
+.buttonClicked{
+    width: 30%;
+    border: none;
+    background-color: inherit;
+    font-size: 18px;
+    color: rgb(146, 121, 115);
+}
 .todo{
     width: 95%;
     height: 60px;
     display: flex;
-    border-bottom: 1px solid rgb(211, 185, 179);
 }
 .todoBox{
     width: 100%;
@@ -55,7 +61,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
 }
 .todoBox::-webkit-scrollbar { 
+    width: 0;
+    height: 0;
+}
+.hidden{
     display: none;
 }

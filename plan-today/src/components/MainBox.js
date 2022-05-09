@@ -73,18 +73,27 @@ function MainBox(){
             </div>
             <div className={styles.todoBox}>
                 {
-                    ShowTodo(todos, handleDelete, setTodos)
+                    ShowTodo(todos, handleDelete, setTodos, show)
                 }
             </div>
         </div>
     );
 }
 
-function ShowTodo(todos, handleDelete, setTodos){
+function ShowTodo(todos, handleDelete, setTodos, show){
     return(<>
             {todos.map(
             (current) =>{
-                return <Todo todo={current.todo} handleDelete={handleDelete} key={current.id} id={current.id} todos={todos} setTodos={setTodos} checked={current.checked}/>
+                return <Todo 
+                            todo={current.todo} 
+                            handleDelete={handleDelete} 
+                            key={current.id} 
+                            id={current.id} 
+                            todos={todos} 
+                            setTodos={setTodos} 
+                            checked={current.checked}
+                            show={show}
+                        />
             })}
         </>
     );

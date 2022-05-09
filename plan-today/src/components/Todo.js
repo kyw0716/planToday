@@ -3,20 +3,26 @@ import styles from "../css/Todo.module.css";
 
 function Todo({todo, handleDelete, id, todos, setTodos, checked, show}){
     const [mod, setMod] = useState(true);
-    const [newInput, setNewInput] = useState("");
+    const [newInput, setNewInput] = useState(todo);
     const [newSubmit, setNewSubmit] = useState(todo);
     const [check, setCheck] = useState(checked);
     const [hide, setHide] = useState(false);
+    const [refresh, setRefresh] = useState(false);
 
     useEffect(()=>{
-        let copyArray = Array.from(todos);
-        copyArray[id - 1] = {id : id, todo : newSubmit, checked : check};
-        setTodos(copyArray);
+        if(refresh){
+            let copyArray = Array.from(todos);
+            copyArray[id - 1] = {id : id, todo : newSubmit, checked : check};
+            setTodos(copyArray);
+        }
+    },[newSubmit, check]);
+
+    useEffect(()=>{
         if(show === 0) setHide(false);
         else if(show === -1 & check === false) setHide(false);
         else if(show === 1 & check === true) setHide(false);
         else setHide(true);
-    },[newSubmit, check, show]);
+    },[check, show])
 
     const modify = () =>{
         setMod(current => !current);
@@ -29,14 +35,17 @@ function Todo({todo, handleDelete, id, todos, setTodos, checked, show}){
     const onSubmit = (e) => {
         e.preventDefault();
         setNewSubmit(newInput);
+        setRefresh(true);
         modify();
     }
 
     const handleChecked = (e) => {
         if(e.target.checked === true){
+            setRefresh(true);
             setCheck(true);
         }
         else{
+            setRefresh(true);
             setCheck(false);
         }
     }

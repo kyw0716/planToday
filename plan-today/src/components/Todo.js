@@ -1,11 +1,17 @@
-import {useState} from 'react';
+import { useState, useEffect } from 'react';
 import styles from "../css/Todo.module.css";
 
-function Todo({todo, handleDelete, id}){
+function Todo({todo, handleDelete, id, todos, setTodos}){
     const [mod, setMod] = useState(true);
     const [newInput, setNewInput] = useState("");
     const [newSubmit, setNewSubmit] = useState(todo);
-    const [checked, setChecked] = useState();
+    const [checked, setChecked] = useState(false);
+
+    useEffect(()=>{
+        let copyArray = Array.from(todos);
+        copyArray[id - 1] = {id : id, todo : newSubmit, checked : checked};
+        setTodos(copyArray);
+    },[newSubmit]);
 
     const modify = () =>{
         setMod(current => !current);

@@ -73,18 +73,18 @@ function MainBox(){
             </div>
             <div className={styles.todoBox}>
                 {
-                    ShowTodo(todos, handleDelete)
+                    ShowTodo(todos, handleDelete, setTodos)
                 }
             </div>
         </div>
     );
 }
 
-function ShowTodo(todos, handleDelete){
+function ShowTodo(todos, handleDelete, setTodos){
     return(<>
             {todos.map(
             (current) =>{
-                return <Todo todo={current.todo} handleDelete={handleDelete} key={current.id} id={current.id}/>
+                return <Todo todo={current.todo} handleDelete={handleDelete} key={current.id} id={current.id} todos={todos} setTodos={setTodos}/>
             })}
         </>
     );

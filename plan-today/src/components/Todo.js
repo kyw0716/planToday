@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import styles from "../css/Todo.module.css";
 
-function Todo({todo, handleDelete}){
+function Todo({todo, handleDelete, id}){
     const [mod, setMod] = useState(true);
     const [newInput, setNewInput] = useState("");
     const [newSubmit, setNewSubmit] = useState(todo);
@@ -44,7 +44,7 @@ function Todo({todo, handleDelete}){
                         </span>
                         <div className={styles.buttonBox}>
                             <button onClick={modify} className={styles.button}>수정</button>
-                            <button onClick={handleDelete} className={styles.button} name={newSubmit}>삭제</button>
+                            <button onClick={handleDelete} className={styles.button} id={id}>삭제</button>
                         </div>
                     </div>
                     :

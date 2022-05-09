@@ -29,6 +29,7 @@ function MainBox(){
                 }
             ]);
         }
+        setSubmitData("");
     },[submitData]);
 
     const inputOnChange = (e) => {
@@ -52,7 +53,7 @@ function MainBox(){
     }
 
     const handleDelete = (e) => {
-        setTodos(todos.filter(current => current.todo !== e.target.name));
+        setTodos(todos.filter(current => `${current.id}` !== `${e.target.id}`));
     }
 
     return(
@@ -83,7 +84,7 @@ function ShowTodo(todos, handleDelete){
     return(<>
             {todos.map(
             (current) =>{
-                return <Todo todo={current.todo} handleDelete={handleDelete} key={current.id}/>
+                return <Todo todo={current.todo} handleDelete={handleDelete} key={current.id} id={current.id}/>
             })}
         </>
     );

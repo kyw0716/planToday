@@ -1,17 +1,22 @@
 import { useState, useEffect } from 'react';
 import styles from "../css/Todo.module.css";
 
-function Todo({todo, handleDelete, id, todos, setTodos, checked}){
+function Todo({todo, handleDelete, id, todos, setTodos, checked, show}){
     const [mod, setMod] = useState(true);
     const [newInput, setNewInput] = useState("");
     const [newSubmit, setNewSubmit] = useState(todo);
     const [check, setCheck] = useState(checked);
+    const [hide, setHide] = useState(false);
 
     useEffect(()=>{
         let copyArray = Array.from(todos);
         copyArray[id - 1] = {id : id, todo : newSubmit, checked : check};
         setTodos(copyArray);
-    },[newSubmit, check]);
+        if(show === 0) setHide(false);
+        else if(show === -1 & check === false) setHide(false);
+        else if(show === 1 & check === true) setHide(false);
+        else setHide(true);
+    },[newSubmit, check, show]);
 
     const modify = () =>{
         setMod(current => !current);
@@ -40,7 +45,7 @@ function Todo({todo, handleDelete, id, todos, setTodos, checked}){
         <>
             {
                 mod ?
-                    <div className={styles.todo}>
+                    <div className={hide ? styles.hidden : styles.todo}>
                         <input
                             type="checkbox"
                             onChange={handleChecked}

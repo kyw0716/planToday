@@ -8,7 +8,6 @@ function MainBox(){
     const [show, setShow] = useState(0);
     const [todos, setTodos] = useState(()=>{
         const savedTodos = localStorage.getItem("todos");
-
         if(savedTodos){
             return JSON.parse(savedTodos);
         }
@@ -53,7 +52,7 @@ function MainBox(){
     }
 
     const handleDelete = (e) => {
-        setTodos(todos.filter(current => `${current.id}` !== `${e.target.id}`));
+        setTodos(todos.filter(todo => `${todo.id}` !== `${e.target.id}`));
     }
 
     return(

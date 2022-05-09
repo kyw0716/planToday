@@ -84,7 +84,7 @@ function ShowTodo(todos, handleDelete, setTodos){
     return(<>
             {todos.map(
             (current) =>{
-                return <Todo todo={current.todo} handleDelete={handleDelete} key={current.id} id={current.id} todos={todos} setTodos={setTodos}/>
+                return <Todo todo={current.todo} handleDelete={handleDelete} key={current.id} id={current.id} todos={todos} setTodos={setTodos} checked={current.checked}/>
             })}
         </>
     );

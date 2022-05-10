@@ -1,3 +1,9 @@
 .footer{
     margin: 25px 0px;
 }
+
+@media(max-width : 900px){
+    .footer{
+        margin: 10px 0px;
+    }
+}

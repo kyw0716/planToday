@@ -25,3 +25,29 @@
     0%{filter: brightness(1)}
     100%{filter: brightness(0.3);}
 }
+
+@media(max-width : 900px){
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 25%;
+        color: rgb(180, 156, 150);
+        width: 80%;
+        font-size: 25px;
+    }
+}
+
+@media(max-width : 750px){
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 25%;
+        color: rgb(180, 156, 150);
+        width: 80%;
+        font-size: 13px;
+    }
+}

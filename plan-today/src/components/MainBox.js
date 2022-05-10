@@ -8,7 +8,6 @@ function MainBox(){
     const [show, setShow] = useState(0);
     const [todos, setTodos] = useState(()=>{
         const savedTodos = localStorage.getItem("todos");
-
         if(savedTodos){
             return JSON.parse(savedTodos);
         }
@@ -53,7 +52,7 @@ function MainBox(){
     }
 
     const handleDelete = (e) => {
-        setTodos(todos.filter(current => `${current.id}` !== `${e.target.id}`));
+        setTodos(todos.filter(todo => `${todo.id}` !== `${e.target.id}`));
     }
 
     return(
@@ -73,18 +72,27 @@ function MainBox(){
             </div>
             <div className={styles.todoBox}>
                 {
-                    ShowTodo(todos, handleDelete, setTodos)
+                    ShowTodo(todos, handleDelete, setTodos, show)
                 }
             </div>
         </div>
     );
 }
 
-function ShowTodo(todos, handleDelete, setTodos){
+function ShowTodo(todos, handleDelete, setTodos, show){
     return(<>
             {todos.map(
             (current) =>{
-                return <Todo todo={current.todo} handleDelete={handleDelete} key={current.id} id={current.id} todos={todos} setTodos={setTodos}/>
+                return <Todo 
+                            todo={current.todo} 
+                            handleDelete={handleDelete} 
+                            key={current.id} 
+                            id={current.id} 
+                            todos={todos} 
+                            setTodos={setTodos} 
+                            checked={current.checked}
+                            show={show}
+                        />
             })}
         </>
     );

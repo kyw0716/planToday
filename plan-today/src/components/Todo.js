@@ -1,17 +1,28 @@
 import { useState, useEffect } from 'react';
 import styles from "../css/Todo.module.css";
 
-function Todo({todo, handleDelete, id, todos, setTodos}){
+function Todo({todo, handleDelete, id, todos, setTodos, checked, show}){
     const [mod, setMod] = useState(true);
-    const [newInput, setNewInput] = useState("");
+    const [newInput, setNewInput] = useState(todo);
     const [newSubmit, setNewSubmit] = useState(todo);
-    const [checked, setChecked] = useState(false);
+    const [check, setCheck] = useState(checked);
+    const [hide, setHide] = useState(false);
+    const [refresh, setRefresh] = useState(false);
 
     useEffect(()=>{
-        let copyArray = Array.from(todos);
-        copyArray[id - 1] = {id : id, todo : newSubmit, checked : checked};
-        setTodos(copyArray);
-    },[newSubmit]);
+        if(refresh){
+            let copyArray = Array.from(todos);
+            copyArray[id - 1] = {id : id, todo : newSubmit, checked : check};
+            setTodos(copyArray);
+        }
+    },[newSubmit, check]);
+
+    useEffect(()=>{
+        if(show === 0) setHide(false);
+        else if(show === -1 & check === false) setHide(false);
+        else if(show === 1 & check === true) setHide(false);
+        else setHide(true);
+    },[check, show])
 
     const modify = () =>{
         setMod(current => !current);
@@ -24,15 +35,18 @@ function Todo({todo, handleDelete, id, todos, setTodos}){
     const onSubmit = (e) => {
         e.preventDefault();
         setNewSubmit(newInput);
+        setRefresh(true);
         modify();
     }
 
     const handleChecked = (e) => {
         if(e.target.checked === true){
-            setChecked(true);
+            setRefresh(true);
+            setCheck(true);
         }
         else{
-            setChecked(false);
+            setRefresh(true);
+            setCheck(false);
         }
     }
 
@@ -40,12 +54,13 @@ function Todo({todo, handleDelete, id, todos, setTodos}){
         <>
             {
                 mod ?
-                    <div className={styles.todo}>
+                    <div className={hide ? styles.hidden : styles.todo}>
                         <input
                             type="checkbox"
                             onChange={handleChecked}
+                            checked={checked}
                         />
-                        <span className={styles.span}>
+                        <span className={check ? styles.spanChecked : styles.span}>
                             {newSubmit}
                         </span>
                         <div className={styles.buttonBox}>

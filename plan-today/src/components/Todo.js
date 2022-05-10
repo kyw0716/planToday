@@ -60,7 +60,7 @@ function Todo({todo, handleDelete, id, todos, setTodos, checked, show}){
                             onChange={handleChecked}
                             checked={checked}
                         />
-                        <span className={styles.span}>
+                        <span className={check ? styles.spanChecked : styles.span}>
                             {newSubmit}
                         </span>
                         <div className={styles.buttonBox}>

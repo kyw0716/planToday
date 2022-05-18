@@ -1,7 +1,9 @@
 import styles from '../styles/Home.module.css'
-import Phrases from '../pages/Phrases'
-import MainBox from '../pages/MainBox'
-import Footer from '../pages/Footer'
+import Phrases from '../components/feature/Phrases'
+import Footer from '../components/layout/Footer'
+import dynamic from 'next/dynamic'
+
+const MainBox = dynamic(()=>import("../components/feature/mainBox/index"),{ssr : false})
 
 export default function Home() {
   return (

@@ -1,25 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import Todo from "./Todo";
-import styles from "../styles/MainBox.module.css";
+import styles from "../../../styles/MainBox.module.css";
 
 function MainBox(){
     const [inputData, setInputData] = useState("");
     const [submitData, setSubmitData] = useState("");
     const [show, setShow] = useState(0);
-    const [todos, setTodos] = useState([]);
-
-    useEffect(()=>{
-        setTodos(()=>{
-            const savedTodos = localStorage.getItem("todos");
-            if(savedTodos){
-                return JSON.parse(savedTodos);
-            }
-            else{
-                return [];
-            }
+    const [todos, setTodos] = useState(()=>{
+        const savedTodos = localStorage.getItem("todos");
+        if(savedTodos){
+            return JSON.parse(savedTodos);
         }
-        );
-    },[]);
+        else{
+            return [];
+        }
+    });
     
     useEffect(()=>{
         localStorage.setItem("todos", JSON.stringify(todos));
@@ -77,18 +72,8 @@ function MainBox(){
             </div>
             <div className={styles.todoBox}>
                 {
-                    ShowTodo(todos, handleDelete, setTodos, show)
-                }
-            </div>
-        </div>
-    );
-}
-
-function ShowTodo(todos, handleDelete, setTodos, show){
-    return(<>
-            {todos.map(
-            (current) =>{
-                return <Todo 
+                    todos.map((current)=>{
+                        return <Todo 
                             todo={current.todo} 
                             handleDelete={handleDelete} 
                             key={current.id} 
@@ -98,8 +83,10 @@ function ShowTodo(todos, handleDelete, setTodos, show){
                             checked={current.checked}
                             show={show}
                         />
-            })}
-        </>
+                    })
+                }
+            </div>
+        </div>
     );
 }
 

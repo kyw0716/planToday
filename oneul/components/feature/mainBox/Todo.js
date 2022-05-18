@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styles from "../styles/Todo.module.css";
+import styles from "../../../styles/Todo.module.css";
 
 function Todo({todo, handleDelete, id, todos, setTodos, checked, show}){
     const [mod, setMod] = useState(true);

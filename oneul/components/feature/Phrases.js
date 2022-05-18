@@ -1,4 +1,4 @@
-import styles from "../styles/Phrases.module.css";
+import styles from "../../styles/Phrases.module.css";
 import {useState, useEffect} from "react";
 
 function Phrases(){

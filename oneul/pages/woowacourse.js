@@ -29,8 +29,11 @@ const Style = {
     background-color: #efe4e0;
     border: 1px solid rgb(180, 156, 150);
     outline: none;
-    font-size: 20px;
+    font-size: 18px;
     padding: 10px;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-weight: 400;
   `,
 };
 

@@ -49,7 +49,9 @@ export default function WooWaCourse() {
   return (
     <Style.Container>
       <Link href={"/"}>
-        <h1 style={{ cursor: "pointer" }}>우아한 테크코스 합격 기원!!!</h1>
+        <h1 style={{ cursor: "pointer", color: "rgb(99, 86, 83)" }}>
+          우아한 테크코스 합격 기원!!!
+        </h1>
       </Link>
       <Style.CountContainer>
         <div style={{ fontSize: "25px" }}>

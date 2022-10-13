@@ -54,16 +54,12 @@ export default function WooWaCourse() {
       <Style.CountContainer>
         <div style={{ fontSize: "25px" }}>
           공백 포함: 총&nbsp;
-          <span style={{ color: "blue", fontWeight: "bold" }}>
-            {lengthWithWhiteSpace}
-          </span>
+          <span style={{ fontWeight: "bold" }}>{lengthWithWhiteSpace}</span>
           &nbsp;자
         </div>
         <div style={{ fontSize: "25px" }}>
           공백 제외: 총&nbsp;
-          <span style={{ color: "blue", fontWeight: "bold" }}>
-            {lengthWithoutWhiteSpace}
-          </span>
+          <span style={{ fontWeight: "bold" }}>{lengthWithoutWhiteSpace}</span>
           &nbsp;자
         </div>
       </Style.CountContainer>

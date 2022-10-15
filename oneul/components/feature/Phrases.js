@@ -1,6 +1,52 @@
 import styles from "../../styles/Phrases.module.css";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import styled from "styled-components";
+
+const Style = {
+  Container: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 25%;
+    color: rgb(180, 156, 150);
+    width: 40%;
+    @media (max-width: 900px) {
+      width: 80%;
+      font-size: 25px;
+    }
+    @media (max-width: 750px) {
+      width: 80%;
+      font-size: 13px;
+    }
+  `,
+  ButtonContainer: styled.div`
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  `,
+  Button: styled.div`
+    background-color: inherit;
+    color: rgb(180, 156, 150);
+    border: none;
+    margin-right: 10px;
+    cursor: pointer;
+  `,
+  Title: styled.h1`
+    cursor: pointer;
+    animation: blinking 2s infinite;
+    @keyframes blinking {
+      0% {
+        filter: brightness(1);
+      }
+      100% {
+        filter: brightness(0.3);
+      }
+    }
+  `,
+};
 
 function Phrases() {
   const [advice, setAdvice] = useState("");
@@ -31,28 +77,20 @@ function Phrases() {
   };
 
   return (
-    <div className={styles.container}>
+    <Style.Container>
       <Link href={"/woowacourse"}>
-        <h1 className={styles.title} style={{ cursor: "pointer" }}>
-          오늘
-        </h1>
+        <Style.Title>오늘</Style.Title>
       </Link>
       <span id="advice">{advice}</span>
-      <div className={styles.buttonBox}>
-        <button className={styles.button} onClick={onClick}>
-          update
-        </button>
+      <Style.ButtonContainer>
+        <Style.Button onClick={onClick}>update</Style.Button>
         {hidden ? (
-          <button className={styles.button} onClick={hiddenToggle}>
-            show
-          </button>
+          <Style.Button onClick={hiddenToggle}>show</Style.Button>
         ) : (
-          <button className={styles.button} onClick={hiddenToggle}>
-            hide
-          </button>
+          <Style.Button onClick={hiddenToggle}>hide</Style.Button>
         )}
-      </div>
-    </div>
+      </Style.ButtonContainer>
+    </Style.Container>
   );
 }
 

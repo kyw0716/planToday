@@ -1,4 +1,3 @@
-import styles from "../../styles/Phrases.module.css";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import styled from "styled-components";

@@ -1,11 +1,19 @@
-import styles from '../../styles/Footer.module.css';
+import styled from "styled-components";
+import styles from "../../styles/Footer.module.css";
 
-function Footer(){
-    return(
-        <div className={styles.footer}>
-            © 2022 Kim - Young Woo. All rights reserved.
-        </div>
-    );
+const Style = {
+  Footer: styled.div`
+    margin: 25px 0px;
+    @media (max-width: 900px) {
+      margin: 10px 0px;
+    }
+  `,
+};
+
+function Footer() {
+  return (
+    <Style.Footer>© 2022 Kim - Young Woo. All rights reserved.</Style.Footer>
+  );
 }
 
 export default Footer;

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import styles from "../../styles/Footer.module.css";
 
 const Style = {
   Footer: styled.div`

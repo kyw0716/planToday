@@ -38,5 +38,12 @@
 
 <br/>
 
-<img src="./오늘%20프로젝트.gif"/>
-<img src="./글자%20수%20세기.gif"/>
+1️⃣ 하루 계획 기능
+
+<img style="width: 400px;" src="./오늘%20프로젝트.gif"/>
+
+<br/>
+
+2️⃣ 글자 수 세기 기능
+
+<img style="width: 400px;" src="./글자%20수%20세기.gif"/>
